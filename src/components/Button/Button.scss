@@ -1,0 +1,19 @@
+.button-wrapper {
+  border: 0.2px solid rgba(0, 0, 0, 0.126);
+  padding: 0.4rem 1.5rem;
+  color: #282828;
+  font-weight: 700;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  background-color: darkorange;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.03);
+    background-color: rgb(240, 150, 39);
+  }
+}

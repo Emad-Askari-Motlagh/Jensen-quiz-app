@@ -1,0 +1,25 @@
+.map-container {
+  height: 400px;
+  width: 90%;
+  margin: auto;
+  .sidebar {
+    background-color: rgba(35, 55, 75, 0.9);
+    color: #fff;
+
+    font-family: monospace;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 12px;
+    border-radius: 4px;
+  }
+  .marker {
+    background-image: url("../../../public/mapbox-icon.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,65 @@
+.footer {
+  border-width: 2px 0 0 0;
+  width: 100%;
+  padding-top: 10px;
+  border-top: 2px solid #121212;
+  .footer_wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .footer__col1 {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+    }
+    .footer__invention {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 10px;
+      color: whitesmoke;
+      margin: auto;
+      margin-top: 1rem;
+    }
+
+    .footer__col2 {
+      width: 100%;
+      display: flex;
+
+      justify-content: space-around;
+      text-align: center;
+      align-items: center;
+      min-height: max-content;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .footer__terms {
+      border: 1px dashed grey;
+      cursor: pointer;
+      color: grey;
+      border-radius: 12px;
+      padding: 0px 22px;
+      text-decoration: none;
+      width: fit-content;
+      margin: auto;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .footer {
+    border-top: 1px solid snow;
+    position: relative;
+    background-blend-mode: screen;
+    border-color: #242424;
+    border-width: 14px 0 0 0;
+    background-blend-mode: screen;
+    background-size: contain;
+  }
+
+  .footer__invention {
+    font-size: 10px;
+  }
+}

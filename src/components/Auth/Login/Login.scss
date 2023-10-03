@@ -1,0 +1,12 @@
+.register-container {
+  width: 70%;
+  margin: auto;
+  min-height: 100vmin;
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
