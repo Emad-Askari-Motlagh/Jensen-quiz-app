@@ -78,20 +78,22 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     };
   }, []);
 
-  const register = async (userData: any) => {
-    try {
-      const res = await axiosInstance.post("/auth/signup", userData);
+  const register = useCallback(() => {
+    return async (userData: any) => {
+      try {
+        const res = await axiosInstance.post("/auth/signup", userData);
 
-      setRegisterError("Unexpected error happend during register");
-    } catch (error) {
-      setRegisterError("");
-      console.error(error);
-      if (axios.isAxiosError(error) && !error.response) {
-        throw new Error("Network Error");
+        setRegisterError("Unexpected error happend during register");
+      } catch (error) {
+        setRegisterError("");
+        console.error(error);
+        if (axios.isAxiosError(error) && !error.response) {
+          throw new Error("Network Error");
+        }
+        throw error;
       }
-      throw error;
-    }
-  };
+    };
+  }, []);
 
   const setUserId = (userId: string) => {
     setUser({ token: user?.token || null });
