@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+Git repo: https://github.com/Emad-Askari-Motlagh/Jensen-quiz-app.git
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

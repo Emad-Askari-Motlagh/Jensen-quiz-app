@@ -6,7 +6,6 @@ import QuizCard from "../../components/QuizCard";
 import Search from "../../components/Search";
 import Info from "../../components/Info";
 import Loading from "../../components/Loading";
-import Modal from "../../components/Modal";
 
 export default function AllQuizes() {
   const { quizes, deleteQuizById, getAllQuizes, getUserQuiz, loading } =
@@ -71,9 +70,10 @@ export default function AllQuizes() {
             }
           })}
       </div>
-      {loading && <Loading />}
-      {!loading && quizes?.length < 1 && (
-        <Info type="error">OBS! No quiz founded</Info>
+      {loading ? (
+        <Loading />
+      ) : (
+        quizes?.length < 1 && <Info type="error">OBS! No quiz founded</Info>
       )}
     </div>
   );
