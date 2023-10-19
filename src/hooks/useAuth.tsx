@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useState,
   ReactNode,
+  useCallback,
 } from "react";
 import axios, { AxiosResponse } from "axios";
 import { saveCookieValue } from "../utils/saveCookieValue";
@@ -49,31 +50,33 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     getUser();
   }, []);
 
-  const login = async (userData: { username: string; password: string }) => {
-    try {
-      const res = await axiosInstance.post("/auth/login", userData);
-      const { token } = res.data;
+  const login = useCallback(() => {
+    return async (userData: { username: string; password: string }) => {
+      try {
+        const res = await axiosInstance.post("/auth/login", userData);
+        const { token } = res.data;
 
-      if (!token) {
-        throw new Error("Invalid token");
-      }
-      saveCookieValue("token", token);
-      saveCookieValue("username", userData.username);
-      setUser({ token, username: userData.username });
-      setLoginError("");
-    } catch (error) {
-      console.log("error");
-      deleteCookie("token");
-      deleteCookie("username");
-      setUser(null);
-      setLoginError("Unexpected error happend during login");
+        if (!token) {
+          throw new Error("Invalid token");
+        }
+        saveCookieValue("token", token);
+        saveCookieValue("username", userData.username);
+        setUser({ token, username: userData.username });
+        setLoginError("");
+      } catch (error) {
+        console.log("error");
+        deleteCookie("token");
+        deleteCookie("username");
+        setUser(null);
+        setLoginError("Unexpected error happend during login");
 
-      if (axios.isAxiosError(error) && !error.response) {
-        throw new Error("Network Error");
+        if (axios.isAxiosError(error) && !error.response) {
+          throw new Error("Network Error");
+        }
+        throw error;
       }
-      throw error;
-    }
-  };
+    };
+  }, []);
 
   const register = async (userData: any) => {
     try {

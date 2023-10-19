@@ -16,6 +16,7 @@ export default function AllQuizes() {
   useEffect(() => {
     getAllQuizes();
   }, []);
+
   //Delete a specific quiz
   async function deleteQuiz(id: string) {
     try {
